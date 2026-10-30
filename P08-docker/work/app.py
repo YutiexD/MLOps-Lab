@@ -31,3 +31,15 @@ def predict(order: Order):
     row = pd.DataFrame([order.model_dump()])[FEATURES]
     return {"delivery_min": round(float(model.predict(row)[0]), 1),
             "model_version": app.version}
+
+
+@app.get("/student-info")
+def student_info():
+    return {
+        "message": "Assignment 8 Done!",
+        "student_name": "Utsav",
+        "enrollment_number": "S24CSEU0113",
+        "assignment": "Practical 08 - Packing the Service into a Container",
+        "course": "BTech CSE",
+        "university": "Bennett University"
+    }
